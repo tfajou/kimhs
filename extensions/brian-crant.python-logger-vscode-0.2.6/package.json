@@ -1,0 +1,101 @@
+{
+	"name": "python-logger-vscode",
+	"displayName": "Python Quick Logger",
+	"description": "Wrap variables with stdlib Logging instances: log.info().",
+	"version": "0.2.6",
+	"publisher": "brian-crant",
+	"author": {
+		"name": "Brian Crant"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/bcrant/python-logger-vscode"
+	},
+	"icon": "images/icon.png",
+	"galleryBanner": {
+		"color": "#C80000",
+		"theme": "dark"
+	},
+	"engines": {
+		"vscode": "^1.27.0"
+	},
+	"categories": [
+		"Programming Languages",
+		"Debuggers",
+		"Other"
+	],
+	"keywords": [
+		"Python",
+		"Print",
+		"Log",
+		"Logger",
+		"Logging"
+	],
+	"activationEvents": [
+		"onLanguage:python",
+		"onCommand:extension.print"
+	],
+	"main": "./out/extension",
+	"contributes": {
+		"languages": [
+			{
+				"id": "python",
+				"aliases": [
+					"Python",
+					"Python3"
+				],
+				"extensions": [
+					".py"
+				]
+			}
+		],
+		"commands": [
+			{
+				"command": "extension.py_log_selection",
+				"title": "Log Python Selection"
+			},
+			{
+				"command": "extension.py_print_selection",
+				"title": "Print Python Selection"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "extension.py_log_selection",
+				"key": "ctrl+shift+l",
+				"mac": "cmd+shift+l",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.py_print_selection",
+				"key": "ctrl+shift+p",
+				"mac": "cmd+shift+p",
+				"when": "editorTextFocus"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"@types/mocha": "^2.2.42",
+		"@types/node": "^8.10.25",
+		"tslint": "^5.8.0",
+		"typescript": "^2.6.1",
+		"vscode": "^1.1.37"
+	},
+	"__metadata": {
+		"id": "875d23c6-bf60-4147-a568-ef3dc7d4c7f5",
+		"publisherId": "067e5a76-80c8-4d48-b037-9a0d666cef10",
+		"publisherDisplayName": "Brian Crant",
+		"targetPlatform": "undefined",
+		"updated": false,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1700659873361,
+		"preRelease": false
+	}
+}

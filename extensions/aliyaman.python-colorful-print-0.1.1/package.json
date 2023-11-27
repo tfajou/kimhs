@@ -1,0 +1,91 @@
+{
+	"name": "python-colorful-print",
+	"displayName": "Python Colorful Print",
+	"description": "Python print colorful out log messages",
+	"version": "0.1.1",
+	"engines": {
+		"vscode": "^1.72.0"
+	},
+	"publisher": "AliYaman",
+	"author": {
+		"name": "AliYaman"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/AliYmn/python-colorful-print"
+	},
+	"icon": "images/icon.png",
+	"galleryBanner": {
+		"color": "#C80000",
+		"theme": "dark"
+	},
+	"categories": [
+		"Programming Languages",
+		"Debuggers",
+		"Other"
+	],
+	"keywords": [
+		"Python",
+		"Print",
+		"Log",
+		"colorful"
+	],
+	"activationEvents": [
+		"onCommand:python-colorful-print.colorfulPrint"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"languages": [
+			{
+				"id": "python",
+				"aliases": [
+					"Python",
+					"Python3"
+				],
+				"extensions": [
+					".py"
+				]
+			}
+		],
+		"commands": [
+			{
+				"command": "python-colorful-print.colorfulPrint",
+				"title": "colorfulPrint"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "python-colorful-print.colorfulPrint",
+				"key": "ctrl+shift+l",
+				"mac": "cmd+shift+l",
+				"when": "editorTextFocus"
+			}
+		]
+	},
+	"scripts": {
+		"lint": "eslint .",
+		"pretest": "npm run lint",
+		"test": "node ./test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.72.0",
+		"@types/glob": "^8.0.0",
+		"@types/mocha": "^10.0.0",
+		"@types/node": "16.x",
+		"eslint": "^8.24.0",
+		"glob": "^8.0.3",
+		"mocha": "^10.0.0",
+		"typescript": "^4.8.4",
+		"@vscode/test-electron": "^2.1.5"
+	},
+	"__metadata": {
+		"id": "5a2a5cc2-9e51-4d91-9a4e-8a53927760b0",
+		"publisherId": "86fa5fe3-5f8c-4319-a385-8c510dc5713c",
+		"publisherDisplayName": "Ali Yaman",
+		"targetPlatform": "undefined",
+		"updated": false,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1700659876299,
+		"preRelease": false
+	}
+}

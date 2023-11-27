@@ -1,0 +1,95 @@
+{
+	"name": "python-resource-monitor",
+	"displayName": "Python Resource Monitor",
+	"description": "A resource monitor for the Python Debugger",
+	"version": "0.2.2",
+	"publisher": "kaih2o",
+	"contributors": [
+		"2kai2kai2",
+		"mgrunbauer",
+		"nlaha"
+	],
+	"repository": "https://github.com/2kai2kai2/VSCode-Python-Resource-Monitor",
+	"icon": "images/icon.png",
+	"extensionDependencies": [
+		"vscode.python"
+	],
+	"engines": {
+		"vscode": "^1.60.0"
+	},
+	"categories": [
+		"Visualization",
+		"Debuggers",
+		"Other"
+	],
+	"keywords": [
+		"performance",
+		"resource",
+		"resources",
+		"monitor",
+		"counter",
+		"task manager",
+		"python",
+		"memory",
+		"memory counter",
+		"memory monitor",
+		"cpu",
+		"cpu counter",
+		"cpu monitor"
+	],
+	"galleryBanner": {
+		"theme": "dark",
+		"color": "#252526"
+	},
+	"activationEvents": [
+		"onDebug",
+		"onCommand:python-resource-monitor.rsmInterval",
+		"onCommand:python-resource-monitor.rsmLength"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "python-resource-monitor.rsmInterval",
+				"title": "PyRSM: Polling Interval"
+			},
+			{
+				"command": "python-resource-monitor.rsmLength",
+				"title": "PyRSM: Length"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.2.0",
+		"@types/mocha": "^9.0.0",
+		"@types/node": "^16.11.7",
+		"@types/vscode": "^1.56.0",
+		"@typescript-eslint/eslint-plugin": "^4.33.0",
+		"@typescript-eslint/parser": "^4.33.0",
+		"eslint": "^7.32.0",
+		"glob": "^7.2.0",
+		"mocha": "^9.1.3",
+		"typescript": "^4.4.4",
+		"vscode-test": "^1.6.1"
+	},
+	"dependencies": {
+		"node-ps-data": "^1.3.1"
+	},
+	"__metadata": {
+		"id": "25b17ded-4072-4c87-93b2-de7d29b82702",
+		"publisherId": "4eaef2a3-e4ad-439c-87cd-57686b39439c",
+		"publisherDisplayName": "kaih2o",
+		"targetPlatform": "undefined",
+		"updated": false,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1700659819659,
+		"preRelease": false
+	}
+}

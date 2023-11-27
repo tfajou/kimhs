@@ -1,0 +1,180 @@
+{
+	"name": "quick-python-printf",
+	"displayName": "Quick-Python-Printf",
+	"description": "Quickly insert custom Python f-string print functions. Fully customizable.",
+	"version": "2002.0.0",
+	"publisher": "MihaiCosma",
+	"author": {
+		"name": "Mihai Cosma"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/wakamex/Quick-Python-Print"
+	},
+	"icon": "images/icon.png",
+	"engines": {
+		"vscode": "^1.57.0"
+	},
+	"categories": [
+		"Programming Languages",
+		"Debuggers",
+		"Machine Learning",
+		"Data Science"
+	],
+	"keywords": [
+		"python",
+		"print",
+		"printf",
+		"debug"
+	],
+	"activationEvents": [
+		"onLanguage:python"
+	],
+	"main": "./out/main.js",
+	"contributes": {
+		"languages": [
+			{
+				"id": "python",
+				"aliases": [
+					"Python",
+					"Python3"
+				],
+				"extensions": [
+					".py"
+				]
+			}
+		],
+		"commands": [
+			{
+				"command": "extension.python-printf1",
+				"title": "Printf1"
+			},
+			{
+				"command": "extension.python-printf2",
+				"title": "Printf2"
+			},
+			{
+				"command": "extension.python-printf3",
+				"title": "Printf3"
+			},
+			{
+				"command": "extension.python-printf4",
+				"title": "Printf4"
+			},
+			{
+				"command": "extension.python-printf5",
+				"title": "Printf5"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "extension.python-printf1",
+				"key": "ctrl+shift+l",
+				"mac": "cmd+shift+l",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.python-printf2",
+				"key": "ctrl+shift+;",
+				"mac": "cmd+shift+;",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.python-printf3",
+				"key": "ctrl+shift+'",
+				"mac": "cmd+shift+'",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.python-printf4",
+				"key": "",
+				"mac": "",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.python-printf5",
+				"key": "ctrl+shift+/",
+				"mac": "ctrl+shift+/",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.python-print-commentup",
+				"key": "ctrl+shift+up",
+				"mac": "cmd+shift+up",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.python-print-commentdown",
+				"key": "ctrl+shift+down",
+				"mac": "cmd+shift+down",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.python-print-deleteall",
+				"key": "ctrl+shift+alt+/",
+				"mac": "cmd+shift+alt+/",
+				"when": "editorTextFocus"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "QPP: Quick Python Print",
+			"properties": {
+				"customFString1": {
+					"type": "string",
+					"default": "f\"{variable=}\""
+				},
+				"customFString2": {
+					"type": "string",
+					"default": "f\"{len(variable)=}\""
+				},
+				"customFString3": {
+					"type": "string",
+					"default": "f\"{type(variable)=}\""
+				},
+				"customFString4": {
+					"type": "string",
+					"default": "f\"{variable.shape=}\""
+				},
+				"customFString5": {
+					"type": "string",
+					"default": "''.join(['=']*50)"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run esbuild-base -- --minify",
+		"esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
+		"esbuild": "npm run esbuild-base -- --sourcemap",
+		"esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^8.1.0",
+		"@types/jest": "^29.4.0",
+		"@types/mocha": "^10.0.1",
+		"@types/node": "14.x",
+		"@types/vscode": "^1.57.0",
+		"@typescript-eslint/eslint-plugin": "^5.9.1",
+		"@typescript-eslint/parser": "^5.9.1",
+		"@vscode/test-electron": "^2.3.0",
+		"esbuild": "^0.18.17",
+		"eslint": "^8.6.0",
+		"typescript": "^4.5.4"
+	},
+	"__metadata": {
+		"id": "ce23d7f1-18ea-4de0-9b55-a53b12370c90",
+		"publisherId": "6faf56cc-af6e-479e-8a75-447825f0ff48",
+		"publisherDisplayName": "Mihai Cosma",
+		"targetPlatform": "undefined",
+		"updated": false,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1700659892268,
+		"preRelease": false
+	}
+}

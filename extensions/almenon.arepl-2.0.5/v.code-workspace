@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"mochaExplorer.files": "test/*.ts",
+		"mochaExplorer.require": "ts-node/register",
+		"mochaExplorer.ui": "tdd",
+		"python.pythonPath": "C:\\Users\\caleb\\AppData\\Local\\Programs\\Python\\Python39\\python.exe",
+		"wolf.disableHotModeWarning": true
+	}
+}

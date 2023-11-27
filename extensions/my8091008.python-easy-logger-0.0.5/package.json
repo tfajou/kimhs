@@ -1,0 +1,361 @@
+{
+	"name": "python-easy-logger",
+	"displayName": "python-easy-logger",
+	"description": "Quickly handle log operations : Insertion(include log out variable, variable type, tensor shape etc), (Un)comment, Delete by using shortcuts",
+	"version": "0.0.5",
+	"publisher": "my8091008",
+	"author": {
+		"name": "my8091008"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/"
+	},
+	"icon": "images/logo.png",
+	"engines": {
+		"vscode": "^1.57.0"
+	},
+	"categories": [
+		"Programming Languages",
+		"Debuggers",
+		"Machine Learning",
+		"Data Science"
+	],
+	"keywords": [
+		"python",
+		"print",
+		"tensor",
+		"pytorch",
+		"tensoflow",
+		"paddlepaddle",
+		"numpy"
+	],
+	"activationEvents": [
+		"onCommand:extension.python-log"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"languages": [
+			{
+				"id": "python",
+				"aliases": [
+					"Python",
+					"Python3"
+				],
+				"extensions": [
+					".py"
+				]
+			}
+		],
+		"commands": [
+			{
+				"command": "extension.logInfoCommand",
+				"title": "Log Info",
+				"arguments": [
+					{
+						"type": "string",
+						"name": "word"
+					}
+				]
+			},
+			{
+				"command": "extension.logTypeCommand",
+				"title": "Log Type",
+				"arguments": [
+					{
+						"type": "string",
+						"name": "word"
+					}
+				]
+			},
+			{
+				"command": "extension.replaceWordInDocument",
+				"title": "Replace Word in Document",
+				"arguments": [
+					{
+						"type": "string",
+						"name": "oldWord"
+					},
+					{
+						"type": "string",
+						"name": "newWord"
+					}
+				]
+			},
+			{
+				"command": "extension.toggle_print_or_log",
+				"title": "Toggle print_or_log"
+			},
+			{
+				"command": "extension.replaceSelectedText",
+				"title": "Log Selected Text"
+			},
+			{
+				"command": "extension.replaceSelectedAcademic",
+				"title": "Replace Selected Text By Academic Prompt"
+			},
+			{
+				"command": "extension.replaceSelectedAcademic2",
+				"title": "Replace Selected Text By Academic Prompt2"
+			},
+			{
+				"command": "extension.replaceSelectedCustomPrompt",
+				"title": "Replace Selected Text By Custom Academic Prompt"
+			},
+			{
+				"command": "extension.python-log-tensor",
+				"title": "log variable purely"
+			},
+			{
+				"command": "extension.python-log-tensor-type",
+				"title": "log (Pytorch, TensorFlow, PaddlePaddle, Numpy) tensor type by default"
+			},
+			{
+				"command": "extension.python-log-tensor-shape",
+				"title": "log (Pytorch, TensorFlow, PaddlePaddle, Numpy) tensor shape by default"
+			},
+			{
+				"command": "extension.python-log-commentall",
+				"title": "Comment out all log statements in the scope"
+			},
+			{
+				"command": "extension.python-log-commentup",
+				"title": "Comment out all log statements above the cursor"
+			},
+			{
+				"command": "extension.python-log-commentdown",
+				"title": "Comment out all log statements below the cursor"
+			},
+			{
+				"command": "extension.python-log-deleteall",
+				"title": "Delete all log statements in the scope"
+			},
+			{
+				"command": "extension.python-log-delimiter",
+				"title": "Add delimiter line"
+			},
+			{
+				"command": "extension.latex_replace",
+				"title": "latex replace"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "extension.latex_replace",
+				"key": "ctrl+alt+1",
+				"mac": "cmd+alt+1"
+			},
+			{
+				"command": "extension.toggle_print_or_log",
+				"key": "ctrl+alt+7",
+				"mac": "cmd+alt+7"
+			},
+			{
+				"command": "extension.python-log-tensor",
+				"key": "ctrl+shift+l",
+				"mac": "cmd+shift+l",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.python-log-tensor-shape",
+				"key": "ctrl+shift+o",
+				"mac": "cmd+shift+o",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.python-log-tensor-type",
+				"key": "ctrl+shift+t",
+				"mac": "cmd+shift+t",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.python-log-commentall",
+				"key": "ctrl+shift+/",
+				"mac": "cmd+shift+/",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.python-log-commentup",
+				"key": "ctrl+shift+up",
+				"mac": "cmd+shift+up",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.python-log-commentdown",
+				"key": "ctrl+shift+down",
+				"mac": "cmd+shift+down",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.python-log-deleteall",
+				"key": "ctrl+shift+r",
+				"mac": "cmd+shift+r",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.python-log-delimiter",
+				"key": "ctrl+shift+;",
+				"mac": "cmd+shift+;",
+				"when": "editorTextFocus"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "log configuration",
+			"properties": {
+				"custom_prompt": {
+					"type": "string",
+					"default": "I want you to act as an academic journal editor. Please rephrase the paragraph from an academic angle based on the writting style of the Science journal:",
+					"description": "custom prompt"
+				},
+				"latex_replace": {
+					"type": "string",
+					"default": "Re",
+					"description": "latex_replace"
+				},
+				"1.1.prefix": {
+					"type": "string",
+					"default": "==>> ",
+					"description": "prefix before the variable name"
+				},
+				"1.2.suffix": {
+					"type": "string",
+					"default": ": ",
+					"description": "suffix after the variable name, e.g. :\\n"
+				},
+				"2.attribute1": {
+					"type": "string",
+					"default": "",
+					"description": "variable attribute for Ctrl+Shift+L shortcut"
+				},
+				"3.attribute2": {
+					"type": "string",
+					"default": ".shape",
+					"description": "variable attribute for Ctrl+Shift+O shortcut"
+				},
+				"4.function": {
+					"type": "string",
+					"default": "type",
+					"description": "funtion that can pass in variable for Ctrl+Shift+T shortcut"
+				},
+				"5.1.enable colored output text": {
+					"type": "boolean",
+					"default": false,
+					"description": "whether to enable color output text."
+				},
+				"5.2.color for ctrl shift l": {
+					"type": "string",
+					"default": "green",
+					"description": "color of output text for Ctrl+Shift+L shortcut",
+					"enum": [
+						"red",
+						"green",
+						"yellow",
+						"blue",
+						"magenta",
+						"cyan",
+						"white"
+					]
+				},
+				"5.3.color for ctrl shift o": {
+					"type": "string",
+					"default": "yellow",
+					"description": "color of output text for Ctrl+Shift+O shortcut",
+					"enum": [
+						"red",
+						"green",
+						"yellow",
+						"blue",
+						"magenta",
+						"cyan",
+						"white"
+					]
+				},
+				"5.4.color for ctrl shift t": {
+					"type": "string",
+					"default": "blue",
+					"description": "color of output text for Ctrl+Shift+T shortcut",
+					"enum": [
+						"red",
+						"green",
+						"yellow",
+						"blue",
+						"magenta",
+						"cyan",
+						"white"
+					]
+				},
+				"6.1.delimiter symbol for ctrl shift ;": {
+					"type": "string",
+					"default": "-",
+					"description": "delimiter symbol for Ctrl+Shift+; shortcut"
+				},
+				"6.2.delimiter length for ctrl shift ;": {
+					"type": "number",
+					"default": 50,
+					"description": "number of delimiter symbol for Ctrl+Shift+; shortcut"
+				},
+				"6.3.delimiter color for ctrl shift ;": {
+					"type": "string",
+					"default": "white",
+					"description": "color of output text for Ctrl+Shift+; shortcut",
+					"enum": [
+						"red",
+						"green",
+						"yellow",
+						"blue",
+						"magenta",
+						"cyan",
+						"white"
+					]
+				}
+			}
+		},
+		"menus": {
+			"editor/context": [
+				{
+					"command": "extension.replaceSelectedText",
+					"when": "editorTextFocus"
+				},
+				{
+					"command": "extension.replaceSelectedAcademic",
+					"when": "editorTextFocus"
+				},
+				{
+					"command": "extension.replaceSelectedAcademic2",
+					"when": "editorTextFocus"
+				},
+				{
+					"command": "extension.replaceSelectedCustomPrompt",
+					"when": "editorTextFocus"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.57.0",
+		"@types/node": "14.x",
+		"@typescript-eslint/eslint-plugin": "^5.9.1",
+		"@typescript-eslint/parser": "^5.9.1",
+		"eslint": "^8.6.0",
+		"typescript": "^4.5.4"
+	},
+	"__metadata": {
+		"id": "7281a266-8108-4314-8cdf-612f4880fed8",
+		"publisherId": "6093473c-be60-4301-998b-8850c39e113a",
+		"publisherDisplayName": "Jeffer",
+		"targetPlatform": "undefined",
+		"updated": false,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1700659886029,
+		"preRelease": false
+	}
+}

@@ -1,0 +1,46 @@
+{
+	"name": "python-debug-address-prompt",
+	"displayName": "Python Debugging Address Prompt",
+	"description": "Prompt for host/port before starting a Python debugging session",
+	"version": "1.0.1",
+	"publisher": "alexrsagen",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/alexrsagen/vscode-python-debug-address-prompt"
+	},
+	"bugs": {
+		"url": "https://github.com/alexrsagen/vscode-python-debug-address-prompt/issues"
+	},
+	"engines": {
+		"vscode": "^1.33.1"
+	},
+	"categories": [
+		"Debuggers"
+	],
+	"activationEvents": [
+		"onDebug"
+	],
+	"main": "./out/extension.js",
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install"
+	},
+	"devDependencies": {
+		"@types/node": "^12.0.0",
+		"tslint": "^5.16.0",
+		"typescript": "^3.4.5",
+		"vscode": "^1.1.33"
+	},
+	"__metadata": {
+		"id": "415f5c02-b314-4cbb-8aba-782bdb03827e",
+		"publisherId": "30b24ea3-cc09-449e-94b1-3e546c0e7113",
+		"publisherDisplayName": "Alexander Sagen",
+		"targetPlatform": "undefined",
+		"updated": false,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1700659785784,
+		"preRelease": false
+	}
+}
